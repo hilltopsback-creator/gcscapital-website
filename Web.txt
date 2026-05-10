@@ -1,0 +1,392 @@
+// ADVANCED GCS CAPITAL LLC PROPERTY MANAGEMENT WEBSITE
+// Production-ready React landing page for deployment on Vercel or Netlify
+// Recommended Integrations:
+// - Stripe Payments
+// - Formspree or Resend Email API
+// - AppFolio / Buildium Portal Integration
+// - Google Analytics
+// - Google Maps
+// - Custom Domain: gcscapital.com
+// - Hosting: Vercel
+// - SSL Enabled
+
+export default function GCSCapitalWebsite() {
+  return (
+    <div className="min-h-screen bg-white text-gray-900 font-sans">
+      {/* Navigation */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 text-white shadow-lg backdrop-blur">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold tracking-wide">GCS CAPITAL LLC</h1>
+            <p className="text-xs text-gray-300">Established 2026 • Residential Property Management</p>
+          </div>
+
+          <nav className="hidden md:flex gap-8 text-sm font-medium">
+            <a href="#home" className="hover:text-yellow-400 transition">Home</a>
+            <a href="#about" className="hover:text-yellow-400 transition">About</a>
+            <a href="#services" className="hover:text-yellow-400 transition">Services</a>
+            <a href="#portal" className="hover:text-yellow-400 transition">Portals</a>
+            <a href="#payments" className="hover:text-yellow-400 transition">Payments</a>
+            <a href="#contact" className="hover:text-yellow-400 transition">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section
+        id="home"
+        className="h-screen bg-cover bg-center flex items-center justify-center relative"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/65"></div>
+
+        <div className="relative z-10 max-w-4xl text-center text-white px-6">
+          <h2 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+            Professional Property Management Solutions
+          </h2>
+
+          <p className="text-lg md:text-2xl text-gray-200 mb-10">
+            Georgia-Based Residential Property Management Company Serving Investors,
+            Property Owners, HOAs & Tenants.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#contact"
+              className="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-2xl font-bold shadow-xl transition"
+            >
+              Request Consultation
+            </a>
+
+            <a
+              href="#payments"
+              className="border border-white hover:bg-white hover:text-black px-8 py-4 rounded-2xl font-bold transition"
+            >
+              Pay Online
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="py-24 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1460317442991-0ec209397118?q=80&w=1974&auto=format&fit=crop"
+              className="rounded-3xl shadow-2xl"
+              alt="Property Management"
+            />
+          </div>
+
+          <div>
+            <h3 className="text-4xl font-bold mb-6">About GCS Capital LLC</h3>
+
+            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              GCS Capital LLC is a Georgia-based residential property management and
+              real estate company established in 2026. We specialize in managing
+              residential rental properties, investor portfolios, HOA communities,
+              tenant relations, rent collection, and maintenance coordination.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4 mt-8">
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <h4 className="text-3xl font-bold text-yellow-500">2026</h4>
+                <p className="text-gray-600 mt-2">Established</p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <h4 className="text-3xl font-bold text-yellow-500">Georgia</h4>
+                <p className="text-gray-600 mt-2">Licensed Business</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section id="services" className="py-24 bg-black text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h3 className="text-5xl font-bold mb-4">Our Services</h3>
+            <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+              Full-service residential property management tailored to investors,
+              landlords, and homeowners associations.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Property Management',
+                desc: 'Comprehensive day-to-day residential property operations and tenant management.',
+              },
+              {
+                title: 'Tenant Screening',
+                desc: 'Background checks, income verification, rental history, and screening services.',
+              },
+              {
+                title: 'Rent Collection',
+                desc: 'Automated rent collection and payment processing for landlords and investors.',
+              },
+              {
+                title: 'Maintenance Coordination',
+                desc: '24/7 maintenance requests and vendor coordination services.',
+              },
+              {
+                title: 'HOA Management',
+                desc: 'HOA administration, compliance management, and community support.',
+              },
+              {
+                title: 'Financial Reporting',
+                desc: 'Owner statements, expense tracking, and property performance reporting.',
+              },
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="bg-gray-900 p-8 rounded-3xl border border-gray-800 hover:border-yellow-500 transition shadow-xl"
+              >
+                <h4 className="text-2xl font-bold mb-4 text-yellow-400">
+                  {service.title}
+                </h4>
+                <p className="text-gray-300 leading-relaxed">{service.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Portals */}
+      <section id="portal" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h3 className="text-5xl font-bold mb-4">Tenant & Owner Portals</h3>
+            <p className="text-gray-600 text-lg">
+              Access secure online tools for payments, maintenance requests, and account management.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10">
+            <div className="bg-gray-100 p-10 rounded-3xl shadow-xl">
+              <h4 className="text-3xl font-bold mb-6">Tenant Portal</h4>
+
+              <ul className="space-y-4 text-gray-700 text-lg">
+                <li>• Pay Rent Online</li>
+                <li>• Submit Maintenance Requests</li>
+                <li>• Upload Lease Documents</li>
+                <li>• Access Payment History</li>
+              </ul>
+
+              <button className="mt-8 bg-black text-white px-8 py-4 rounded-2xl font-bold hover:bg-yellow-500 hover:text-black transition">
+                Tenant Login
+              </button>
+            </div>
+
+            <div className="bg-black text-white p-10 rounded-3xl shadow-xl">
+              <h4 className="text-3xl font-bold mb-6 text-yellow-400">Owner Portal</h4>
+
+              <ul className="space-y-4 text-gray-300 text-lg">
+                <li>• Property Financial Reports</li>
+                <li>• Maintenance Tracking</li>
+                <li>• Lease Monitoring</li>
+                <li>• Owner Statements</li>
+              </ul>
+
+              <button className="mt-8 bg-yellow-500 text-black px-8 py-4 rounded-2xl font-bold hover:bg-white transition">
+                Owner Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Payments */}
+      <section id="payments" className="py-24 bg-gray-100">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <h3 className="text-5xl font-bold mb-6">Secure Online Payments</h3>
+
+          <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto">
+            Easily make secure rent or service payments online using all major
+            credit and debit cards. Integrated with trusted merchant processing
+            solutions such as Stripe, Square, and Authorize.net.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {['Visa', 'Mastercard', 'American Express'].map((card, idx) => (
+              <div
+                key={idx}
+                className="bg-white p-10 rounded-3xl shadow-lg border"
+              >
+                <h4 className="text-2xl font-bold">{card}</h4>
+              </div>
+            ))}
+          </div>
+
+          <button className="mt-12 bg-yellow-500 hover:bg-yellow-400 text-black px-10 py-5 rounded-2xl text-xl font-bold shadow-xl transition">
+            Make a Payment
+          </button>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-24 bg-black text-white">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 className="text-5xl font-bold mb-8">Contact Us</h3>
+
+            <div className="space-y-6 text-lg">
+              <div>
+                <h4 className="font-bold text-yellow-400">Phone</h4>
+                <p>770-376-1619</p>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-yellow-400">Email</h4>
+                <p>George.scott@gcscapital.co.site</p>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-yellow-400">Business Address</h4>
+                <p>
+                  600 W Peachtree St NW Ste 1700 PMB 454
+                  <br />
+                  Atlanta, Georgia 30308
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gray-900 p-10 rounded-3xl shadow-2xl">
+            <h4 className="text-3xl font-bold mb-8">Send a Message</h4>
+
+            <form className="space-y-6">
+              <input
+                type="text"
+                placeholder="Full Name"
+                className="w-full p-4 rounded-xl bg-black border border-gray-700 focus:outline-none focus:border-yellow-500"
+              />
+
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="w-full p-4 rounded-xl bg-black border border-gray-700 focus:outline-none focus:border-yellow-500"
+              />
+
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                className="w-full p-4 rounded-xl bg-black border border-gray-700 focus:outline-none focus:border-yellow-500"
+              />
+
+              <textarea
+                rows="6"
+                placeholder="How can we help you?"
+                className="w-full p-4 rounded-xl bg-black border border-gray-700 focus:outline-none focus:border-yellow-500"
+              ></textarea>
+
+              <button className="w-full bg-yellow-500 hover:bg-yellow-400 text-black py-4 rounded-2xl text-lg font-bold transition shadow-xl">
+                Submit Request
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      {/* SEO SECTION */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h3 className="text-5xl font-bold mb-8">Why Choose GCS Capital LLC</h3>
+
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+            <div className="p-8 rounded-3xl shadow-xl bg-gray-100">
+              <h4 className="text-2xl font-bold mb-4">Investor Focused</h4>
+              <p className="text-gray-700">
+                We help real estate investors maximize returns while minimizing operational stress.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-3xl shadow-xl bg-gray-100">
+              <h4 className="text-2xl font-bold mb-4">Reliable Management</h4>
+              <p className="text-gray-700">
+                Professional tenant management, maintenance coordination, rent collection, and reporting.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-3xl shadow-xl bg-gray-100">
+              <h4 className="text-2xl font-bold mb-4">Georgia Based</h4>
+              <p className="text-gray-700">
+                Local expertise with deep knowledge of Georgia residential property management.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MAP SECTION */}
+      <section className="py-24 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h3 className="text-5xl font-bold mb-10">Service Area</h3>
+
+          <div className="rounded-3xl overflow-hidden shadow-2xl border border-gray-300">
+            <iframe
+              title="Google Maps"
+              src="https://www.google.com/maps?q=600+W+Peachtree+St+NW+Atlanta+GA+30308&output=embed"
+              width="100%"
+              height="500"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      {/* CALL TO ACTION */}
+      <section className="py-24 bg-yellow-500 text-black text-center">
+        <div className="max-w-5xl mx-auto px-6">
+          <h3 className="text-5xl font-extrabold mb-6">
+            Ready To Work With GCS Capital LLC?
+          </h3>
+
+          <p className="text-xl mb-10 font-medium">
+            Contact us today to discuss property management solutions tailored to your investment goals.
+          </p>
+
+          <div className="flex flex-col md:flex-row justify-center gap-6">
+            <a
+              href="tel:7703761619"
+              className="bg-black text-white px-10 py-5 rounded-2xl text-lg font-bold hover:bg-gray-900 transition"
+            >
+              Call Now
+            </a>
+
+            <a
+              href="mailto:George.scott@gcscapital.co.site"
+              className="bg-white text-black px-10 py-5 rounded-2xl text-lg font-bold hover:bg-gray-100 transition"
+            >
+              Send Email
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-gray-950 text-gray-400 py-8 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <h4 className="text-white font-bold text-lg">GCS CAPITAL LLC</h4>
+            <p className="text-sm">Georgia Residential Property Management Company</p>
+          </div>
+
+          <div className="text-sm text-center md:text-right">
+            <p>© 2026 GCS Capital LLC. All Rights Reserved.</p>
+            <p>Control Number: 26060415</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
