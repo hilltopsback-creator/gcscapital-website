@@ -1,105 +1,332 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GCS Capital LLC</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
     }
 
-    header {
-      background: black;
-      padding: 20px;
-      text-align: center;
+    body{
+      background:#0f0f0f;
+      color:white;
+      line-height:1.6;
     }
 
-    h1 {
-      color: gold;
-      margin: 0;
+    header{
+      background:black;
+      padding:20px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      border-bottom:1px solid #222;
     }
 
-    .hero {
-      padding: 100px 20px;
-      text-align: center;
-      background: #222;
+    header h1{
+      color:gold;
+      font-size:28px;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 15px 30px;
-      background: gold;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 10px;
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:20px;
+      transition:0.3s;
     }
 
-    section {
-      padding: 60px 20px;
+    nav a:hover{
+      color:gold;
     }
 
-    .card {
-      background: #1c1c1c;
-      padding: 20px;
-      border-radius: 15px;
-      margin-bottom: 20px;
+    .hero{
+      height:90vh;
+      background:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop') center/cover;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+      position:relative;
     }
 
-    footer {
-      background: black;
-      text-align: center;
-      padding: 20px;
-      color: gray;
+    .hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.65);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:1;
+      max-width:800px;
+    }
+
+    .hero h2{
+      font-size:60px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:22px;
+      margin-bottom:30px;
+      color:#ddd;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 35px;
+      background:gold;
+      color:black;
+      text-decoration:none;
+      border-radius:10px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:white;
+    }
+
+    section{
+      padding:80px 40px;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:40px;
+      margin-bottom:50px;
+      color:gold;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:#1b1b1b;
+      padding:30px;
+      border-radius:20px;
+      transition:0.3s;
+      border:1px solid #2a2a2a;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:gold;
+    }
+
+    .card h3{
+      color:gold;
+      margin-bottom:15px;
+    }
+
+    .contact{
+      background:#151515;
+      border-radius:20px;
+      padding:40px;
+      max-width:700px;
+      margin:auto;
+    }
+
+    .contact input,
+    .contact textarea{
+      width:100%;
+      padding:15px;
+      margin-bottom:15px;
+      border:none;
+      border-radius:10px;
+      background:#222;
+      color:white;
+    }
+
+    .contact button{
+      width:100%;
+      padding:15px;
+      background:gold;
+      color:black;
+      border:none;
+      border-radius:10px;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    footer{
+      background:black;
+      text-align:center;
+      padding:25px;
+      color:#888;
+      border-top:1px solid #222;
+    }
+
+    @media(max-width:768px){
+      header{
+        flex-direction:column;
+      }
+
+      .hero h2{
+        font-size:40px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <header>
   <h1>GCS CAPITAL LLC</h1>
-  <p>Residential Property Management</p>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#payments">Payments</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<div class="hero">
-  <h2>Professional Property Management Solutions</h2>
-  <p>Serving Georgia property owners and investors.</p>
-  <a class="btn" href="tel:7703761619">Call Now</a>
-</div>
+<section class="hero">
+  <div class="hero-content">
+    <h2>Professional Property Management Solutions</h2>
 
-<section>
-  <div class="card">
-    <h3>About Us</h3>
     <p>
-      GCS Capital LLC is a Georgia-based residential property management company established in 2026.
+      Residential Property Management Services for Investors,
+      Landlords, and Communities Across Georgia.
     </p>
-  </div>
 
-  <div class="card">
-    <h3>Services</h3>
-    <ul>
-      <li>Property Management</li>
-      <li>Tenant Screening</li>
-      <li>Rent Collection</li>
-      <li>Maintenance Coordination</li>
-      <li>HOA Management</li>
-    </ul>
+    <a href="tel:7703761619" class="btn">Call Now</a>
   </div>
+</section>
 
-  <div class="card">
-    <h3>Contact</h3>
-    <p>Phone: 770-376-1619</p>
-    <p>Email: George.scott@gcscapital.co.site</p>
-    <p>Atlanta, Georgia</p>
+<section id="about">
+  <h2 class="section-title">About Us</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Established 2026</h3>
+      <p>
+        GCS Capital LLC is a Georgia-based residential property management company dedicated to professional service and investor growth.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Georgia Based</h3>
+      <p>
+        Serving Atlanta and surrounding Georgia markets with modern property management solutions.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Professional Management</h3>
+      <p>
+        We provide tenant management, rent collection, maintenance coordination, and property oversight.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <h2 class="section-title">Our Services</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Property Management</h3>
+      <p>Complete residential management solutions.</p>
+    </div>
+
+    <div class="card">
+      <h3>Tenant Screening</h3>
+      <p>Professional background and rental screening.</p>
+    </div>
+
+    <div class="card">
+      <h3>Rent Collection</h3>
+      <p>Online payment processing and collections.</p>
+    </div>
+
+    <div class="card">
+      <h3>Maintenance Coordination</h3>
+      <p>Fast maintenance request management.</p>
+    </div>
+
+    <div class="card">
+      <h3>HOA Management</h3>
+      <p>Community association administration services.</p>
+    </div>
+
+    <div class="card">
+      <h3>Financial Reporting</h3>
+      <p>Monthly owner statements and reporting.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="payments">
+  <h2 class="section-title">Secure Online Payments</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Credit & Debit Cards</h3>
+      <p>Secure online payment processing available.</p>
+    </div>
+
+    <div class="card">
+      <h3>Tenant Portal</h3>
+      <p>Tenant access for payments and requests.</p>
+    </div>
+
+    <div class="card">
+      <h3>Owner Portal</h3>
+      <p>Property owner account management access.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact Us</h2>
+
+  <div class="contact">
+
+    <input type="text" placeholder="Full Name" />
+
+    <input type="email" placeholder="Email Address" />
+
+    <textarea rows="6" placeholder="Message"></textarea>
+
+    <button>Send Message</button>
+
+    <br><br>
+
+    <p><strong>Phone:</strong> 770-376-1619</p>
+
+    <p><strong>Email:</strong> George.scott@gcscapital.co.site</p>
+
+    <p><strong>Location:</strong> Atlanta, Georgia</p>
+
   </div>
 </section>
 
 <footer>
-  © 2026 GCS Capital LLC
+  © 2026 GCS Capital LLC — All Rights Reserved
 </footer>
 
 </body>
