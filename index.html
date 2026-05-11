@@ -1,332 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GCS Capital LLC</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
+<title>GCS Capital LLC</title>
 
-    body{
-      background:#0f0f0f;
-      color:white;
-      line-height:1.6;
-    }
+<style>
 
-    header{
-      background:black;
-      padding:20px 40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      position:sticky;
-      top:0;
-      z-index:1000;
-      border-bottom:1px solid #222;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+scroll-behavior:smooth;
+}
 
-    header h1{
-      color:gold;
-      font-size:28px;
-    }
+body{
+background:#0d0d0d;
+color:white;
+line-height:1.6;
+}
 
-    nav a{
-      color:white;
-      text-decoration:none;
-      margin-left:20px;
-      transition:0.3s;
-    }
+header{
+background:black;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+border-bottom:1px solid #222;
+}
 
-    nav a:hover{
-      color:gold;
-    }
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
 
-    .hero{
-      height:90vh;
-      background:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop') center/cover;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:20px;
-      position:relative;
-    }
+.logo img{
+width:70px;
+height:auto;
+border-radius:10px;
+}
 
-    .hero::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,0.65);
-    }
+.logo h1{
+font-size:28px;
+color:gold;
+}
 
-    .hero-content{
-      position:relative;
-      z-index:1;
-      max-width:800px;
-    }
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+transition:.3s;
+font-weight:bold;
+}
 
-    .hero h2{
-      font-size:60px;
-      margin-bottom:20px;
-    }
+nav a:hover{
+color:gold;
+}
 
-    .hero p{
-      font-size:22px;
-      margin-bottom:30px;
-      color:#ddd;
-    }
+.hero{
+height:95vh;
+background:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop') center/cover;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+position:relative;
+}
 
-    .btn{
-      display:inline-block;
-      padding:15px 35px;
-      background:gold;
-      color:black;
-      text-decoration:none;
-      border-radius:10px;
-      font-weight:bold;
-      transition:0.3s;
-    }
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.7);
+}
 
-    .btn:hover{
-      background:white;
-    }
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+}
 
-    section{
-      padding:80px 40px;
-    }
+.hero h2{
+font-size:65px;
+margin-bottom:20px;
+}
 
-    .section-title{
-      text-align:center;
-      font-size:40px;
-      margin-bottom:50px;
-      color:gold;
-    }
+.hero p{
+font-size:22px;
+color:#ddd;
+margin-bottom:30px;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:25px;
-    }
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:gold;
+color:black;
+font-weight:bold;
+text-decoration:none;
+border-radius:10px;
+transition:.3s;
+margin:10px;
+}
 
-    .card{
-      background:#1b1b1b;
-      padding:30px;
-      border-radius:20px;
-      transition:0.3s;
-      border:1px solid #2a2a2a;
-    }
+.btn:hover{
+background:white;
+transform:translateY(-3px);
+}
 
-    .card:hover{
-      transform:translateY(-5px);
-      border-color:gold;
-    }
+section{
+padding:90px 40px;
+}
 
-    .card h3{
-      color:gold;
-      margin-bottom:15px;
-    }
+.section-title{
+text-align:center;
+font-size:45px;
+margin-bottom:50px;
+color:gold;
+}
 
-    .contact{
-      background:#151515;
-      border-radius:20px;
-      padding:40px;
-      max-width:700px;
-      margin:auto;
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
 
-    .contact input,
-    .contact textarea{
-      width:100%;
-      padding:15px;
-      margin-bottom:15px;
-      border:none;
-      border-radius:10px;
-      background:#222;
-      color:white;
-    }
+.card{
+background:#171717;
+padding:30px;
+border-radius:20px;
+border:1px solid #2a2a2a;
+transition:.3s;
+}
 
-    .contact button{
-      width:100%;
-      padding:15px;
-      background:gold;
-      color:black;
-      border:none;
-      border-radius:10px;
-      font-size:18px;
-      font-weight:bold;
-      cursor:pointer;
-    }
+.card:hover{
+transform:translateY(-6px);
+border-color:gold;
+}
 
-    footer{
-      background:black;
-      text-align:center;
-      padding:25px;
-      color:#888;
-      border-top:1px solid #222;
-    }
+.card h3{
+color:gold;
+margin-bottom:15px;
+font-size:24px;
+}
 
-    @media(max-width:768px){
-      header{
-        flex-direction:column;
-      }
+.card p{
+color:#ccc;
+}
 
-      .hero h2{
-        font-size:40px;
-      }
+.banner{
+background:url('https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1974&auto=format&fit=crop') center/cover;
+padding:120px 20px;
+text-align:center;
+position:relative;
+}
 
-      .hero p{
-        font-size:18px;
-      }
-    }
-  </style>
+.banner::before{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.7);
+}
+
+.banner-content{
+position:relative;
+z-index:2;
+}
+
+.banner h2{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.payments{
+text-align:center;
+}
+
+.payment-buttons{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+margin-top:30px;
+}
+
+.contact-box{
+background:#171717;
+max-width:800px;
+margin:auto;
+padding:40px;
+border-radius:20px;
+}
+
+.contact-box input,
+.contact-box textarea{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:none;
+border-radius:10px;
+background:#222;
+color:white;
+}
+
+.contact-box button{
+width:100%;
+padding:15px;
+background:gold;
+border:none;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+footer{
+background:black;
+padding:30px;
+text-align:center;
+color:#777;
+border-top:1px solid #222;
+}
+
+@media(max-width:768px){
+
+header{
+flex-direction:column;
+gap:20px;
+}
+
+.hero h2{
+font-size:42px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.banner h2{
+font-size:36px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>GCS CAPITAL LLC</h1>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#payments">Payments</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<div class="logo">
+<img src="IMG_1102.png" alt="GCS Capital LLC Logo">
+
+<div>
+<h1>GCS CAPITAL LLC</h1>
+<p style="color:#aaa;">Property Management & Real Estate</p>
+</div>
+</div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#payments">Payments</a>
+<a href="#contact">Contact</a>
+</nav>
+
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <h2>Professional Property Management Solutions</h2>
 
-    <p>
-      Residential Property Management Services for Investors,
-      Landlords, and Communities Across Georgia.
-    </p>
+<div class="hero-content">
 
-    <a href="tel:7703761619" class="btn">Call Now</a>
-  </div>
+<h2>Luxury Property Management Solutions</h2>
+
+<p>
+Professional Residential Property Management Services
+Serving Georgia Investors, Property Owners & Communities.
+</p>
+
+<a href="tel:7703761619" class="btn">Call Now</a>
+
+<a href="#contact" class="btn">Request Consultation</a>
+
+</div>
+
 </section>
 
 <section id="about">
-  <h2 class="section-title">About Us</h2>
 
-  <div class="grid">
-    <div class="card">
-      <h3>Established 2026</h3>
-      <p>
-        GCS Capital LLC is a Georgia-based residential property management company dedicated to professional service and investor growth.
-      </p>
-    </div>
+<h2 class="section-title">About GCS Capital LLC</h2>
 
-    <div class="card">
-      <h3>Georgia Based</h3>
-      <p>
-        Serving Atlanta and surrounding Georgia markets with modern property management solutions.
-      </p>
-    </div>
+<div class="grid">
 
-    <div class="card">
-      <h3>Professional Management</h3>
-      <p>
-        We provide tenant management, rent collection, maintenance coordination, and property oversight.
-      </p>
-    </div>
-  </div>
+<div class="card">
+<h3>Established 2026</h3>
+
+<p>
+GCS Capital LLC is a Georgia-based property management and real estate company focused on residential management solutions.
+</p>
+</div>
+
+<div class="card">
+<h3>Investor Focused</h3>
+
+<p>
+We help property owners maximize returns while reducing operational stress through modern management systems.
+</p>
+</div>
+
+<div class="card">
+<h3>Professional Service</h3>
+
+<p>
+Our company provides rent collection, tenant screening, maintenance coordination, HOA services, and financial reporting.
+</p>
+</div>
+
+</div>
+
 </section>
 
 <section id="services">
-  <h2 class="section-title">Our Services</h2>
 
-  <div class="grid">
+<h2 class="section-title">Our Services</h2>
 
-    <div class="card">
-      <h3>Property Management</h3>
-      <p>Complete residential management solutions.</p>
-    </div>
+<div class="grid">
 
-    <div class="card">
-      <h3>Tenant Screening</h3>
-      <p>Professional background and rental screening.</p>
-    </div>
+<div class="card">
+<h3>Property Management</h3>
+<p>Full-service residential property oversight and management.</p>
+</div>
 
-    <div class="card">
-      <h3>Rent Collection</h3>
-      <p>Online payment processing and collections.</p>
-    </div>
+<div class="card">
+<h3>Tenant Screening</h3>
+<p>Background checks, rental history verification, and approval services.</p>
+</div>
 
-    <div class="card">
-      <h3>Maintenance Coordination</h3>
-      <p>Fast maintenance request management.</p>
-    </div>
+<div class="card">
+<h3>Rent Collection</h3>
+<p>Automated online rent collection and payment tracking.</p>
+</div>
 
-    <div class="card">
-      <h3>HOA Management</h3>
-      <p>Community association administration services.</p>
-    </div>
+<div class="card">
+<h3>Maintenance Coordination</h3>
+<p>Fast repair requests and maintenance dispatch coordination.</p>
+</div>
 
-    <div class="card">
-      <h3>Financial Reporting</h3>
-      <p>Monthly owner statements and reporting.</p>
-    </div>
+<div class="card">
+<h3>HOA Management</h3>
+<p>Community association administration and compliance support.</p>
+</div>
 
-  </div>
+<div class="card">
+<h3>Financial Reporting</h3>
+<p>Monthly owner statements and property performance reporting.</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="payments">
-  <h2 class="section-title">Secure Online Payments</h2>
+<section class="banner">
 
-  <div class="grid">
+<div class="banner-content">
 
-    <div class="card">
-      <h3>Credit & Debit Cards</h3>
-      <p>Secure online payment processing available.</p>
-    </div>
+<h2>Professional Real Estate & Property Solutions</h2>
 
-    <div class="card">
-      <h3>Tenant Portal</h3>
-      <p>Tenant access for payments and requests.</p>
-    </div>
+<p style="font-size:20px;color:#ddd;">
+Serving Atlanta and surrounding Georgia communities.
+</p>
 
-    <div class="card">
-      <h3>Owner Portal</h3>
-      <p>Property owner account management access.</p>
-    </div>
+</div>
 
-  </div>
+</section>
+
+<section id="payments" class="payments">
+
+<h2 class="section-title">Secure Online Payments</h2>
+
+<p style="color:#ccc;font-size:20px;">
+Online payment processing available for tenants and property owners.
+</p>
+
+<div class="payment-buttons">
+
+<a href="#" class="btn">Pay Rent</a>
+
+<a href="#" class="btn">Application Fee</a>
+
+<a href="#" class="btn">Management Fees</a>
+
+<a href="#" class="btn">Maintenance Invoice</a>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">Tenant & Owner Portals</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Tenant Portal</h3>
+
+<p>
+Submit maintenance requests, make payments, and access tenant information online.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Owner Portal</h3>
+
+<p>
+View financial statements, property updates, and management reports securely online.
+</p>
+
+</div>
+
+</div>
+
 </section>
 
 <section id="contact">
-  <h2 class="section-title">Contact Us</h2>
 
-  <div class="contact">
+<h2 class="section-title">Contact Us</h2>
 
-    <input type="text" placeholder="Full Name" />
+<div class="contact-box">
 
-    <input type="email" placeholder="Email Address" />
+<input type="text" placeholder="Full Name">
 
-    <textarea rows="6" placeholder="Message"></textarea>
+<input type="email" placeholder="Email Address">
 
-    <button>Send Message</button>
+<input type="tel" placeholder="Phone Number">
 
-    <br><br>
+<textarea rows="6" placeholder="Message"></textarea>
 
-    <p><strong>Phone:</strong> 770-376-1619</p>
+<button>Submit Inquiry</button>
 
-    <p><strong>Email:</strong> George.scott@gcscapital.co.site</p>
+<br><br>
 
-    <p><strong>Location:</strong> Atlanta, Georgia</p>
+<p><strong>Phone:</strong> 770-376-1619</p>
 
-  </div>
+<p><strong>Email:</strong> George.scott@gcscapital.co.site</p>
+
+<p><strong>Office:</strong> Atlanta, Georgia</p>
+
+</div>
+
 </section>
 
 <footer>
-  © 2026 GCS Capital LLC — All Rights Reserved
+
+<p>© 2026 GCS Capital LLC — All Rights Reserved</p>
+
+<p>Residential Property Management & Real Estate Services</p>
+
 </footer>
 
 </body>
