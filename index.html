@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>GCS Capital LLC</title>
 
@@ -41,22 +41,26 @@ gap:15px;
 }
 
 .logo img{
-width:70px;
-height:auto;
-border-radius:10px;
+width:75px;
+border-radius:12px;
 }
 
 .logo h1{
-font-size:28px;
+font-size:30px;
 color:gold;
+}
+
+.logo p{
+color:#aaa;
+font-size:14px;
 }
 
 nav a{
 color:white;
 text-decoration:none;
 margin-left:20px;
-transition:.3s;
 font-weight:bold;
+transition:.3s;
 }
 
 nav a:hover{
@@ -64,11 +68,11 @@ color:gold;
 }
 
 .hero{
-height:95vh;
+height:100vh;
 background:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop') center/cover;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 text-align:center;
 padding:20px;
 position:relative;
@@ -78,24 +82,24 @@ position:relative;
 content:'';
 position:absolute;
 inset:0;
-background:rgba(0,0,0,.7);
+background:rgba(0,0,0,.72);
 }
 
 .hero-content{
 position:relative;
 z-index:2;
-max-width:900px;
+max-width:950px;
 }
 
 .hero h2{
-font-size:65px;
+font-size:68px;
 margin-bottom:20px;
 }
 
 .hero p{
-font-size:22px;
+font-size:24px;
 color:#ddd;
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
 .btn{
@@ -103,16 +107,16 @@ display:inline-block;
 padding:15px 35px;
 background:gold;
 color:black;
-font-weight:bold;
 text-decoration:none;
+font-weight:bold;
 border-radius:10px;
-transition:.3s;
 margin:10px;
+transition:.3s;
 }
 
 .btn:hover{
 background:white;
-transform:translateY(-3px);
+transform:translateY(-4px);
 }
 
 section{
@@ -221,6 +225,19 @@ font-weight:bold;
 cursor:pointer;
 }
 
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:20px;
+}
+
 footer{
 background:black;
 padding:30px;
@@ -258,17 +275,20 @@ font-size:36px;
 <header>
 
 <div class="logo">
+
 <img src="IMG_1102.png" alt="GCS Capital LLC Logo">
 
 <div>
 <h1>GCS CAPITAL LLC</h1>
-<p style="color:#aaa;">Property Management & Real Estate</p>
+<p>Real Estate • Property Management • Remodeling</p>
 </div>
+
 </div>
 
 <nav>
 <a href="#about">About</a>
 <a href="#services">Services</a>
+<a href="#gallery">Projects</a>
 <a href="#payments">Payments</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -279,11 +299,11 @@ font-size:36px;
 
 <div class="hero-content">
 
-<h2>Luxury Property Management Solutions</h2>
+<h2>Luxury Property Management & Renovation Services</h2>
 
 <p>
-Professional Residential Property Management Services
-Serving Georgia Investors, Property Owners & Communities.
+Professional Property Management, Home Remodeling,
+and Residential Renovation Services Across Georgia.
 </p>
 
 <a href="tel:7703761619" class="btn">Call Now</a>
@@ -302,25 +322,22 @@ Serving Georgia Investors, Property Owners & Communities.
 
 <div class="card">
 <h3>Established 2026</h3>
-
 <p>
-GCS Capital LLC is a Georgia-based property management and real estate company focused on residential management solutions.
+Georgia-based real estate and property management company focused on professional service and long-term investment growth.
 </p>
 </div>
 
 <div class="card">
-<h3>Investor Focused</h3>
-
+<h3>Residential Specialists</h3>
 <p>
-We help property owners maximize returns while reducing operational stress through modern management systems.
+We manage residential homes, rental properties, tenant services, and investor portfolios throughout Georgia.
 </p>
 </div>
 
 <div class="card">
-<h3>Professional Service</h3>
-
+<h3>Renovation Experts</h3>
 <p>
-Our company provides rent collection, tenant screening, maintenance coordination, HOA services, and financial reporting.
+Our remodeling division handles kitchens, bathrooms, flooring, painting, drywall, plumbing, and full-home renovations.
 </p>
 </div>
 
@@ -341,34 +358,44 @@ Our company provides rent collection, tenant screening, maintenance coordination
 
 <div class="card">
 <h3>Tenant Screening</h3>
-<p>Background checks, rental history verification, and approval services.</p>
+<p>Professional background and rental history verification services.</p>
 </div>
 
 <div class="card">
 <h3>Rent Collection</h3>
-<p>Automated online rent collection and payment tracking.</p>
+<p>Secure online rent collection and financial tracking systems.</p>
 </div>
 
 <div class="card">
 <h3>Maintenance Coordination</h3>
-<p>Fast repair requests and maintenance dispatch coordination.</p>
+<p>Fast maintenance requests and contractor coordination.</p>
 </div>
 
 <div class="card">
-<h3>HOA Management</h3>
-<p>Community association administration and compliance support.</p>
+<h3>Home Remodeling</h3>
+<p>Kitchen remodeling, bathroom renovations, flooring installation, and painting services.</p>
 </div>
 
 <div class="card">
-<h3>Financial Reporting</h3>
-  <div class="card">
-<h3>Home Remodeling & Renovation</h3>
-<p>
-Complete residential remodeling services including kitchens, bathrooms, flooring, painting, drywall, electrical, plumbing, and full property renovations.
-</p>
+<h3>Full Renovations</h3>
+<p>Complete property rehabilitation and residential renovation projects.</p>
 </div>
-<p>Monthly owner statements and property performance reporting.</p>
+
 </div>
+
+</section>
+
+<section id="gallery">
+
+<h2 class="section-title">Featured Projects</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1974&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1974&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1974&auto=format&fit=crop">
 
 </div>
 
@@ -378,10 +405,10 @@ Complete residential remodeling services including kitchens, bathrooms, flooring
 
 <div class="banner-content">
 
-<h2>Professional Real Estate & Property Solutions</h2>
+<h2>Professional Real Estate Solutions</h2>
 
 <p style="font-size:20px;color:#ddd;">
-Serving Atlanta and surrounding Georgia communities.
+Serving Atlanta and surrounding Georgia communities with premium management and renovation services.
 </p>
 
 </div>
@@ -431,7 +458,7 @@ Submit maintenance requests, make payments, and access tenant information online
 <h3>Owner Portal</h3>
 
 <p>
-View financial statements, property updates, and management reports securely online.
+View financial statements, property updates, inspection reports, and management records securely online.
 </p>
 
 </div>
@@ -452,7 +479,7 @@ View financial statements, property updates, and management reports securely onl
 
 <input type="tel" placeholder="Phone Number">
 
-<textarea rows="6" placeholder="Message"></textarea>
+<textarea rows="6" placeholder="Tell us about your project or property needs"></textarea>
 
 <button>Submit Inquiry</button>
 
@@ -460,9 +487,9 @@ View financial statements, property updates, and management reports securely onl
 
 <p><strong>Phone:</strong> 770-376-1619</p>
 
-<p><strong>Email:</strong> Georgescott@gcscapital.co.site</p>
+<p><strong>Email:</strong> georgescott@gcscapital.co.site</p>
 
-<p><strong>Office:</strong> 600 W Peachtree St NW Ste 1700 Atlanta, Georgia 30308</p>
+<p><strong>Location:</strong> Atlanta, Georgia</p>
 
 </div>
 
@@ -472,7 +499,7 @@ View financial statements, property updates, and management reports securely onl
 
 <p>© 2026 GCS Capital LLC — All Rights Reserved</p>
 
-<p>Residential Property Management & Real Estate Services</p>
+<p>Real Estate • Leasing • Property Management • Renovation Services</p>
 
 </footer>
 
