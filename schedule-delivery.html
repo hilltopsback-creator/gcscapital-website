@@ -25,6 +25,7 @@ label{font-weight:bold;color:gold;display:block;margin-bottom:8px;}
 .vehicle-box h3,.result h3{color:gold;margin-bottom:15px;}
 .btn{display:inline-block;width:100%;padding:16px;background:gold;color:black;text-align:center;text-decoration:none;font-weight:bold;border-radius:10px;margin-top:15px;border:none;cursor:pointer;font-size:18px;}
 .btn:hover{background:white;}
+.notice{color:#ffd700;font-size:18px;font-weight:bold;margin-top:20px;}
 footer{background:black;padding:30px;text-align:center;color:#777;border-top:1px solid #222;}
 @media(max-width:768px){
 header{flex-direction:column;gap:20px;}
@@ -117,19 +118,18 @@ Get an instant estimate for state-to-state car and truck transport. Add one or m
 <p id="breakdown"></p>
 
 <p><strong>Total Estimate:</strong> $<span id="total"></span></p>
-<p><strong>Deposit Due Today:</strong> $<span id="deposit"></span></p>
+<p><strong>Reservation Deposit:</strong> $300.00</p>
 <p><strong>Estimated Remaining Balance:</strong> $<span id="balance"></span></p>
+
+<p class="notice">A $300 deposit is required to reserve transport service.</p>
 
 <label style="color:white;font-weight:normal;">
 <input type="checkbox" id="agree" style="width:auto;margin-right:10px;">
-I agree to the estimated service total and understand that my deposit is required to reserve transport service. Final price may change if mileage, vehicle condition, vehicle size, pickup details, or delivery details are incorrect.
+I agree to the estimated service total and understand that my $300 deposit is required to reserve transport service. Final price may change if mileage, vehicle condition, vehicle size, pickup details, or delivery details are incorrect.
 </label>
 
-<a href="https://gcs-capital.myhelcim.com/hosted/?token=9dd6fbb5d2bf5111e533e0&amount=300.00&amountHash=be63eced63c43f110b2561ce16fcc9ce97d1640e27c1e910d94a15ddb2db6f97"
-class="btn"
-onclick="return checkAgreement();"
-target="_blank">
-Pay Deposit & Reserve Transport
+<a href="https://gcs-capital.myhelcim.com/hosted/?token=9dd6fbb5d2bf5111e533e0&amount=300.00&amountHash=be63eced63c43f110b2561ce16fcc9ce97d1640e27c1e910d94a15ddb2db6f97" class="btn" onclick="return checkAgreement();" target="_blank">
+Pay $300 Deposit & Reserve Transport
 </a>
 
 </div>
@@ -257,20 +257,14 @@ total = total * 1.20;
 breakdownText += "<strong>Expedited Service:</strong> +20%<br><br>";
 }
 
-let deposit = 0;
-
-if(total < 1000){
-deposit = 150;
-}else if(total <= 2000){
-deposit = total * 0.20;
-}else{
-deposit = total * 0.15;
-}
-
+let deposit = 300;
 let balance = total - deposit;
 
+if(balance < 0){
+balance = 0;
+}
+
 document.getElementById("total").innerText = total.toFixed(2);
-document.getElementById("deposit").innerText = deposit.toFixed(2);
 document.getElementById("balance").innerText = balance.toFixed(2);
 document.getElementById("breakdown").innerHTML = breakdownText;
 document.getElementById("result").style.display = "block";
