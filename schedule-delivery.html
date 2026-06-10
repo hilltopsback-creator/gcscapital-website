@@ -3,160 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Schedule Auto Transport | GCS Capital LLC</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#0d0d0d;
-color:white;
-line-height:1.6;
-}
-
-header{
-background:black;
-padding:20px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid #222;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-.logo img{
-width:75px;
-border-radius:12px;
-}
-
-.logo h1{
-font-size:30px;
-color:gold;
-}
-
-.logo p{
-color:#aaa;
-font-size:14px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-weight:bold;
-}
-
-nav a:hover{
-color:gold;
-}
-
-section{
-padding:70px 30px;
-}
-
-.box{
-background:#171717;
-max-width:850px;
-margin:auto;
-padding:40px;
-border-radius:20px;
-border:1px solid #333;
-}
-
-h2{
-text-align:center;
-font-size:42px;
-color:gold;
-margin-bottom:20px;
-}
-
-p{
-color:#ccc;
-margin-bottom:20px;
-}
-
-input, select, textarea{
-width:100%;
-padding:15px;
-margin-bottom:15px;
-border:none;
-border-radius:10px;
-background:#222;
-color:white;
-font-size:16px;
-}
-
-label{
-font-weight:bold;
-color:gold;
-display:block;
-margin-bottom:8px;
-}
-
-.result{
-background:#0d0d0d;
-border:1px solid gold;
-padding:25px;
-border-radius:15px;
-margin-top:20px;
-}
-
-.result h3{
-color:gold;
-margin-bottom:10px;
-}
-
-.btn{
-display:inline-block;
-width:100%;
-padding:16px;
-background:gold;
-color:black;
-text-align:center;
-text-decoration:none;
-font-weight:bold;
-border-radius:10px;
-margin-top:15px;
-border:none;
-cursor:pointer;
-font-size:18px;
-}
-
-.btn:hover{
-background:white;
-}
-
-footer{
-background:black;
-padding:30px;
-text-align:center;
-color:#777;
-border-top:1px solid #222;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#0d0d0d;color:white;line-height:1.6;}
+header{background:black;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #222;}
+.logo{display:flex;align-items:center;gap:15px;}
+.logo img{width:75px;border-radius:12px;}
+.logo h1{font-size:30px;color:gold;}
+.logo p{color:#aaa;font-size:14px;}
+nav a{color:white;text-decoration:none;margin-left:20px;font-weight:bold;}
+nav a:hover{color:gold;}
+section{padding:70px 30px;}
+.box{background:#171717;max-width:900px;margin:auto;padding:40px;border-radius:20px;border:1px solid #333;}
+h2{text-align:center;font-size:42px;color:gold;margin-bottom:20px;}
+p{color:#ccc;margin-bottom:20px;}
+input,select,textarea{width:100%;padding:15px;margin-bottom:15px;border:none;border-radius:10px;background:#222;color:white;font-size:16px;}
+label{font-weight:bold;color:gold;display:block;margin-bottom:8px;}
+.vehicle-box,.result{background:#0d0d0d;border:1px solid #444;padding:25px;border-radius:15px;margin-top:20px;}
+.vehicle-box h3,.result h3{color:gold;margin-bottom:15px;}
+.btn{display:inline-block;width:100%;padding:16px;background:gold;color:black;text-align:center;text-decoration:none;font-weight:bold;border-radius:10px;margin-top:15px;border:none;cursor:pointer;font-size:18px;}
+.btn:hover{background:white;}
+footer{background:black;padding:30px;text-align:center;color:#777;border-top:1px solid #222;}
 @media(max-width:768px){
-header{
-flex-direction:column;
-gap:20px;
-}
-nav a{
-display:inline-block;
-margin:8px;
-}
-h2{
-font-size:32px;
-}
+header{flex-direction:column;gap:20px;}
+nav a{display:inline-block;margin:8px;}
+h2{font-size:32px;}
 }
 </style>
 </head>
@@ -185,7 +58,7 @@ font-size:32px;
 <h2>Schedule Auto Transport</h2>
 
 <p>
-Get an instant estimate for state-to-state car and truck transport. Enter the transport details below, review your estimated total, agree to the service terms, and pay your deposit to reserve service.
+Get an instant estimate for state-to-state car and truck transport. Add one or multiple vehicles, review your estimated total, agree to the terms, and pay your deposit to reserve transport service.
 </p>
 
 <label>Full Name</label>
@@ -206,17 +79,17 @@ Get an instant estimate for state-to-state car and truck transport. Enter the tr
 <label>Estimated Mileage</label>
 <input type="number" id="miles" placeholder="Enter estimated miles">
 
-<label>Vehicle Type</label>
-<select id="vehicle">
-<option value="car">Car / Sedan</option>
-<option value="suv">SUV / Pickup Truck</option>
+<label>Number of Vehicles</label>
+<select id="vehicleCount" onchange="buildVehicleFields()">
+<option value="1">1 Vehicle</option>
+<option value="2">2 Vehicles</option>
+<option value="3">3 Vehicles</option>
+<option value="4">4 Vehicles</option>
+<option value="5">5 Vehicles</option>
+<option value="6">6 Vehicles</option>
 </select>
 
-<label>Vehicle Condition</label>
-<select id="condition">
-<option value="running">Running</option>
-<option value="nonrunning">Non-Running (+$150)</option>
-</select>
+<div id="vehicles"></div>
 
 <label>Transport Type</label>
 <select id="transport">
@@ -233,8 +106,8 @@ Get an instant estimate for state-to-state car and truck transport. Enter the tr
 <label>Preferred Pickup Date</label>
 <input type="date" id="date">
 
-<label>Vehicle Details</label>
-<textarea id="details" rows="4" placeholder="Year, make, model, color, and any special notes"></textarea>
+<label>Special Instructions</label>
+<textarea id="instructions" rows="4" placeholder="Gate codes, pickup instructions, delivery notes, contact person, etc."></textarea>
 
 <button class="btn" onclick="calculateEstimate()">Calculate Estimate</button>
 
@@ -247,16 +120,15 @@ Get an instant estimate for state-to-state car and truck transport. Enter the tr
 <p><strong>Deposit Due Today:</strong> $<span id="deposit"></span></p>
 <p><strong>Estimated Remaining Balance:</strong> $<span id="balance"></span></p>
 
-<label>
+<label style="color:white;font-weight:normal;">
 <input type="checkbox" id="agree" style="width:auto;margin-right:10px;">
 I agree to the estimated service total and understand that my deposit is required to reserve transport service. Final price may change if mileage, vehicle condition, vehicle size, pickup details, or delivery details are incorrect.
 </label>
 
-<a href="https://gcs-
-capital.myhelcim.com/hosted/?
-token=9dd6fbb5d2bf5111e533e0&a mount=300.00&amountHash=be63 eced63c43f110b2561ce16fc-c9ce97d1640e27c1e910d94a15d-db2db6f97">Add to Portals</a>
+<a href="PASTE-YOUR-HELCIM-DEPOSIT-LINK-HERE" class="btn" onclick="return checkAgreement();" target="_blank">
 Pay Deposit & Reserve Transport
 </a>
+
 </div>
 
 </div>
@@ -268,11 +140,40 @@ Pay Deposit & Reserve Transport
 </footer>
 
 <script>
+function buildVehicleFields(){
+let count = Number(document.getElementById("vehicleCount").value);
+let container = document.getElementById("vehicles");
+container.innerHTML = "";
+
+for(let i = 1; i <= count; i++){
+container.innerHTML += `
+<div class="vehicle-box">
+<h3>Vehicle ${i}</h3>
+
+<label>Vehicle Type</label>
+<select id="vehicle${i}">
+<option value="car">Car / Sedan</option>
+<option value="suv">SUV / Pickup Truck</option>
+<option value="truck">Large Truck / Van</option>
+</select>
+
+<label>Vehicle Condition</label>
+<select id="condition${i}">
+<option value="running">Running</option>
+<option value="nonrunning">Non-Running (+$150)</option>
+</select>
+
+<label>Vehicle Details</label>
+<textarea id="details${i}" rows="3" placeholder="Year, make, model, color, VIN if available"></textarea>
+</div>
+`;
+}
+}
+
 function calculateEstimate(){
 
 let miles = Number(document.getElementById("miles").value);
-let vehicle = document.getElementById("vehicle").value;
-let condition = document.getElementById("condition").value;
+let count = Number(document.getElementById("vehicleCount").value);
 let transport = document.getElementById("transport").value;
 let speed = document.getElementById("speed").value;
 
@@ -281,21 +182,28 @@ alert("Please enter estimated mileage.");
 return;
 }
 
+let total = 0;
+let breakdownText = "";
+
+for(let i = 1; i <= count; i++){
+
+let vehicle = document.getElementById("vehicle" + i).value;
+let condition = document.getElementById("condition" + i).value;
+
 let rate = 0;
 let minimum = 0;
 
 if(vehicle === "car"){
 minimum = 350;
-
 if(miles <= 500){ rate = 1.50; }
 else if(miles <= 1000){ rate = 1.20; }
 else if(miles <= 1500){ rate = 1.00; }
 else if(miles <= 2000){ rate = 0.90; }
 else{ rate = 0.80; }
+}
 
-}else{
+if(vehicle === "suv"){
 minimum = 450;
-
 if(miles <= 500){ rate = 1.75; }
 else if(miles <= 1000){ rate = 1.40; }
 else if(miles <= 1500){ rate = 1.20; }
@@ -303,10 +211,19 @@ else if(miles <= 2000){ rate = 1.10; }
 else{ rate = 1.00; }
 }
 
-let basePrice = miles * rate;
+if(vehicle === "truck"){
+minimum = 550;
+if(miles <= 500){ rate = 2.00; }
+else if(miles <= 1000){ rate = 1.60; }
+else if(miles <= 1500){ rate = 1.40; }
+else if(miles <= 2000){ rate = 1.25; }
+else{ rate = 1.10; }
+}
 
-if(basePrice < minimum){
-basePrice = minimum;
+let vehiclePrice = miles * rate;
+
+if(vehiclePrice < minimum){
+vehiclePrice = minimum;
 }
 
 let extraFees = 0;
@@ -315,14 +232,26 @@ if(condition === "nonrunning"){
 extraFees += 150;
 }
 
-let total = basePrice + extraFees;
+vehiclePrice += extraFees;
+total += vehiclePrice;
+
+breakdownText +=
+"<strong>Vehicle " + i + ":</strong><br>" +
+"Mileage: " + miles + " miles<br>" +
+"Rate Used: $" + rate.toFixed(2) + " per mile<br>" +
+"Minimum Charge: $" + minimum.toFixed(2) + "<br>" +
+"Condition Fee: $" + extraFees.toFixed(2) + "<br>" +
+"Vehicle Estimate: $" + vehiclePrice.toFixed(2) + "<br><br>";
+}
 
 if(transport === "enclosed"){
 total = total * 1.40;
+breakdownText += "<strong>Enclosed Transport:</strong> +40%<br><br>";
 }
 
 if(speed === "expedited"){
 total = total * 1.20;
+breakdownText += "<strong>Expedited Service:</strong> +20%<br><br>";
 }
 
 let deposit = 0;
@@ -340,26 +269,19 @@ let balance = total - deposit;
 document.getElementById("total").innerText = total.toFixed(2);
 document.getElementById("deposit").innerText = deposit.toFixed(2);
 document.getElementById("balance").innerText = balance.toFixed(2);
-
-document.getElementById("breakdown").innerHTML =
-"Mileage: " + miles + " miles<br>" +
-"Rate Used: $" + rate.toFixed(2) + " per mile<br>" +
-"Minimum Charge Applied: $" + minimum.toFixed(2) + "<br>" +
-"Extra Fees: $" + extraFees.toFixed(2);
-
+document.getElementById("breakdown").innerHTML = breakdownText;
 document.getElementById("result").style.display = "block";
 }
 
 function checkAgreement(){
-let agree = document.getElementById("agree").checked;
-
-if(!agree){
+if(!document.getElementById("agree").checked){
 alert("Please agree to the estimate terms before paying your deposit.");
 return false;
 }
-
 return true;
 }
+
+window.onload = buildVehicleFields;
 </script>
 
 </body>
