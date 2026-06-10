@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Schedule Auto Transport | GCS Capital LLC</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0d0d0d;
+color:white;
+line-height:1.6;
+}
+
+header{
+background:black;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #222;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo img{
+width:75px;
+border-radius:12px;
+}
+
+.logo h1{
+font-size:30px;
+color:gold;
+}
+
+.logo p{
+color:#aaa;
+font-size:14px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:bold;
+}
+
+nav a:hover{
+color:gold;
+}
+
+section{
+padding:70px 30px;
+}
+
+.box{
+background:#171717;
+max-width:850px;
+margin:auto;
+padding:40px;
+border-radius:20px;
+border:1px solid #333;
+}
+
+h2{
+text-align:center;
+font-size:42px;
+color:gold;
+margin-bottom:20px;
+}
+
+p{
+color:#ccc;
+margin-bottom:20px;
+}
+
+input, select, textarea{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:none;
+border-radius:10px;
+background:#222;
+color:white;
+font-size:16px;
+}
+
+label{
+font-weight:bold;
+color:gold;
+display:block;
+margin-bottom:8px;
+}
+
+.result{
+background:#0d0d0d;
+border:1px solid gold;
+padding:25px;
+border-radius:15px;
+margin-top:20px;
+}
+
+.result h3{
+color:gold;
+margin-bottom:10px;
+}
+
+.btn{
+display:inline-block;
+width:100%;
+padding:16px;
+background:gold;
+color:black;
+text-align:center;
+text-decoration:none;
+font-weight:bold;
+border-radius:10px;
+margin-top:15px;
+border:none;
+cursor:pointer;
+font-size:18px;
+}
+
+.btn:hover{
+background:white;
+}
+
+footer{
+background:black;
+padding:30px;
+text-align:center;
+color:#777;
+border-top:1px solid #222;
+}
+
+@media(max-width:768px){
+header{
+flex-direction:column;
+gap:20px;
+}
+nav a{
+display:inline-block;
+margin:8px;
+}
+h2{
+font-size:32px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+<img src="IMG_1102.png" alt="GCS Capital LLC Logo">
+<div>
+<h1>GCS CAPITAL LLC</h1>
+<p>Auto Transport • Property Management • Remodeling</p>
+</div>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="schedule-delivery.html">Schedule Transport</a>
+<a href="index.html#contact">Contact</a>
+</nav>
+</header>
+
+<section>
+<div class="box">
+
+<h2>Schedule Auto Transport</h2>
+
+<p>
+Get an instant estimate for state-to-state car and truck transport. Enter the transport details below, review your estimated total, agree to the service terms, and pay your deposit to reserve service.
+</p>
+
+<label>Full Name</label>
+<input type="text" id="name" placeholder="Full Name">
+
+<label>Phone Number</label>
+<input type="tel" id="phone" placeholder="Phone Number">
+
+<label>Email Address</label>
+<input type="email" id="email" placeholder="Email Address">
+
+<label>Pickup City & State</label>
+<input type="text" id="pickup" placeholder="Example: Atlanta, GA">
+
+<label>Delivery City & State</label>
+<input type="text" id="delivery" placeholder="Example: Dallas, TX">
+
+<label>Estimated Mileage</label>
+<input type="number" id="miles" placeholder="Enter estimated miles">
+
+<label>Vehicle Type</label>
+<select id="vehicle">
+<option value="car">Car / Sedan</option>
+<option value="suv">SUV / Pickup Truck</option>
+</select>
+
+<label>Vehicle Condition</label>
+<select id="condition">
+<option value="running">Running</option>
+<option value="nonrunning">Non-Running (+$150)</option>
+</select>
+
+<label>Transport Type</label>
+<select id="transport">
+<option value="open">Open Transport</option>
+<option value="enclosed">Enclosed Transport (+40%)</option>
+</select>
+
+<label>Service Speed</label>
+<select id="speed">
+<option value="standard">Standard</option>
+<option value="expedited">Expedited (+20%)</option>
+</select>
+
+<label>Preferred Pickup Date</label>
+<input type="date" id="date">
+
+<label>Vehicle Details</label>
+<textarea id="details" rows="4" placeholder="Year, make, model, color, and any special notes"></textarea>
+
+<button class="btn" onclick="calculateEstimate()">Calculate Estimate</button>
+
+<div class="result" id="result" style="display:none;">
+<h3>Estimated Transport Cost</h3>
+
+<p id="breakdown"></p>
+
+<p><strong>Total Estimate:</strong> $<span id="total"></span></p>
+<p><strong>Deposit Due Today:</strong> $<span id="deposit"></span></p>
+<p><strong>Estimated Remaining Balance:</strong> $<span id="balance"></span></p>
+
+<label>
+<input type="checkbox" id="agree" style="width:auto;margin-right:10px;">
+I agree to the estimated service total and understand that my deposit is required to reserve transport service. Final price may change if mileage, vehicle condition, vehicle size, pickup details, or delivery details are incorrect.
+</label>
+
+<a href="PASTE-YOUR-HELCIM-DEPOSIT-LINK-HERE" class="btn" onclick="return checkAgreement();">
+Pay Deposit & Reserve Transport
+</a>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 GCS Capital LLC — All Rights Reserved</p>
+<p>Auto Transport • Property Management • Renovation Services</p>
+</footer>
+
+<script>
+function calculateEstimate(){
+
+let miles = Number(document.getElementById("miles").value);
+let vehicle = document.getElementById("vehicle").value;
+let condition = document.getElementById("condition").value;
+let transport = document.getElementById("transport").value;
+let speed = document.getElementById("speed").value;
+
+if(!miles || miles <= 0){
+alert("Please enter estimated mileage.");
+return;
+}
+
+let rate = 0;
+let minimum = 0;
+
+if(vehicle === "car"){
+minimum = 350;
+
+if(miles <= 500){ rate = 1.50; }
+else if(miles <= 1000){ rate = 1.20; }
+else if(miles <= 1500){ rate = 1.00; }
+else if(miles <= 2000){ rate = 0.90; }
+else{ rate = 0.80; }
+
+}else{
+minimum = 450;
+
+if(miles <= 500){ rate = 1.75; }
+else if(miles <= 1000){ rate = 1.40; }
+else if(miles <= 1500){ rate = 1.20; }
+else if(miles <= 2000){ rate = 1.10; }
+else{ rate = 1.00; }
+}
+
+let basePrice = miles * rate;
+
+if(basePrice < minimum){
+basePrice = minimum;
+}
+
+let extraFees = 0;
+
+if(condition === "nonrunning"){
+extraFees += 150;
+}
+
+let total = basePrice + extraFees;
+
+if(transport === "enclosed"){
+total = total * 1.40;
+}
+
+if(speed === "expedited"){
+total = total * 1.20;
+}
+
+let deposit = 0;
+
+if(total < 1000){
+deposit = 150;
+}else if(total <= 2000){
+deposit = total * 0.20;
+}else{
+deposit = total * 0.15;
+}
+
+let balance = total - deposit;
+
+document.getElementById("total").innerText = total.toFixed(2);
+document.getElementById("deposit").innerText = deposit.toFixed(2);
+document.getElementById("balance").innerText = balance.toFixed(2);
+
+document.getElementById("breakdown").innerHTML =
+"Mileage: " + miles + " miles<br>" +
+"Rate Used: $" + rate.toFixed(2) + " per mile<br>" +
+"Minimum Charge Applied: $" + minimum.toFixed(2) + "<br>" +
+"Extra Fees: $" + extraFees.toFixed(2);
+
+document.getElementById("result").style.display = "block";
+}
+
+function checkAgreement(){
+let agree = document.getElementById("agree").checked;
+
+if(!agree){
+alert("Please agree to the estimate terms before paying your deposit.");
+return false;
+}
+
+return true;
+}
+</script>
+
+</body>
+</html>
